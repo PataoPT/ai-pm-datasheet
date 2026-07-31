@@ -4,7 +4,7 @@ A self-contained study site that teaches the mental models behind ~110 technical
 AI Product Manager interview questions — from zero, assuming no machine-learning
 background.
 
-**Live:** _(add your URL here once deployed)_
+**Live:** <https://ai-pm-datasheet.vercel.app>
 
 ## What it is
 
