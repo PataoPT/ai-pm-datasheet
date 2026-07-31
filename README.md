@@ -1,8 +1,12 @@
 # The AI PM Datasheet
 
-A self-contained study site that teaches the mental models behind ~110 technical
-AI Product Manager interview questions — from zero, assuming no machine-learning
-background.
+A self-contained course on how AI products actually work — from zero, assuming no
+machine-learning background. Not a glossary and not a listicle: nine mental models,
+taught mechanism-first, that let you reason about systems you have never seen.
+
+Written by [Diogo Patão](https://www.linkedin.com/in/diogopatao/) — Chief of Staff
+at Stake Capital Group, GM at Rekt News, and founder of
+[10Q Capital](https://10q.capital). Free, no signup, no tracking.
 
 **Live:** <https://ai-pm-datasheet.vercel.app>
 
@@ -21,7 +25,7 @@ One HTML file. No build step, no dependencies, no external requests — open
   sampling lab with real softmax, a context-window budget allocator, a
   precision/recall threshold lab, and an inference cost and chain-reliability
   model.
-- **90 worked answers** to the questions in the wording an interviewer uses.
+- **90 worked answers** to the real questions people ask about each topic.
 - A **searchable question index**, a **58-question self-test**, and a **printable
   cheat sheet** with an 89-term glossary.
 
@@ -40,10 +44,11 @@ them anywhere that matters.
 
 ## Credit
 
-The ~110 interview questions come from the "Technical AI PM Interview Questions"
-sheet compiled by **Aakash Gupta** (news.aakashg.com). The explanations, diagrams,
-interactive labs, and worked answers in this site are original and were written
-against that question set.
+The ~110 questions used to structure the site come from the "Technical AI PM
+Interview Questions" sheet compiled by **Aakash Gupta** (news.aakashg.com) — a good
+map of what people actually need to understand about AI products, which is what made
+it a good syllabus. The questions are his; the explanations, diagrams, interactive
+labs, and worked answers here are original.
 
 ## Local use
 

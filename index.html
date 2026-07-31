@@ -648,6 +648,46 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
   color: var(--ink-2); max-width: 66ch;
 }
 
+/* ---------- about ---------- */
+#about-sec { margin: 80px 0 0; }
+.bio { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 26px; }
+.bio-body > p {
+  max-width: 62ch; margin: 0 0 16px; font-size: 17.5px; line-height: 1.62;
+}
+.bio-body > p:last-child { margin-bottom: 0; }
+.bio-body strong { font-weight: 700; }
+.bio-body a { color: var(--accent-ink); text-underline-offset: 2px; }
+.bio-card {
+  border: 1px solid var(--rule); border-left: 3px solid var(--accent);
+  background: var(--paper-raised); padding: 18px 20px; align-self: start;
+  box-shadow: var(--shadow);
+}
+.bio-card-h {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-2); margin: 0 0 12px;
+}
+.bio-roles { list-style: none; margin: 0 0 16px; padding: 0; }
+.bio-roles li {
+  margin: 0 0 11px; padding: 0 0 11px; border-bottom: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 13px; line-height: 1.45; color: var(--ink-2);
+}
+.bio-roles li:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.bio-roles b {
+  display: block; font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: var(--ink); margin-bottom: 2px;
+}
+.bio-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.bio-links a {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em;
+  padding: 7px 11px; text-decoration: none;
+  border: 1px solid var(--rule-strong); color: var(--ink-2); background: var(--paper);
+}
+.bio-links a:hover { color: var(--ink); border-color: var(--ink-2); }
+.bio-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (max-width: 860px) {
+  .bio { grid-template-columns: 1fr; gap: 20px; }
+}
+
 /* ---------- footer ---------- */
 #foot {
   margin: 96px 0 0; border-top: 2px solid var(--ink);
@@ -1016,7 +1056,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     <div class="rail-head">
       <p class="rail-mark">Study guide</p>
       <p class="rail-title">The AI PM<br>Datasheet</p>
-      <p class="rail-sub">Nine chapters. Every question on the sheet, answered.</p>
+      <p class="rail-sub">From tokens to system design, in nine chapters.</p>
     </div>
     <div class="rail-scroll">
       <p class="rail-group">Read in order</p>
@@ -1032,22 +1072,23 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
       <header id="top">
         <p class="mast-eyebrow">
-          <span>Technical AI PM</span><span class="dot">/</span>
-          <span>~110 questions</span><span class="dot">/</span>
+          <span>How AI products actually work</span><span class="dot">/</span>
           <span>9 chapters</span><span class="dot">/</span>
+          <span>6 labs</span><span class="dot">/</span>
           <span>Start from zero</span>
         </p>
-        <h1>Eight machines, <em>a hundred questions</em>.</h1>
+        <h1>Nine machines, <em>a hundred questions</em>.</h1>
         <p class="mast-lede">
-          Nobody answers a hundred interview questions from memory. They answer them from eight or
-          nine mental models, each of which generates the answers on demand &mdash; including the
-          answers to the questions that are not on the sheet.
+          Nobody understands this field by memorizing a hundred facts. You understand it through
+          eight or nine mental models that generate the answers on demand &mdash; including the
+          answers to questions nobody has thought to ask you yet.
         </p>
         <p class="mast-lede-2">
-          This site teaches those models from nothing. No machine-learning background assumed, no
-          jargon left undefined. Each chapter ends with worked answers to the exact questions from
-          its column of the sheet, in the wording an interviewer will use. Read it in order &mdash;
-          every chapter assumes the one before it.
+          So this site teaches the models, not the facts. No machine-learning background assumed, no
+          jargon left undefined, and nothing asserted that you cannot check. Each chapter ends with
+          worked answers to the real questions people ask about that topic, six interactive labs let
+          you manipulate the ideas directly rather than read about them, and the whole thing takes
+          about two hours. Read it in order &mdash; every chapter assumes the one before it.
         </p>
 
         <section id="hero" aria-label="A live demonstration of next-token prediction">
@@ -1077,9 +1118,9 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
         <div class="stat-row">
           <div class="stat"><span class="k">9</span><span class="v">chapters, in dependency order</span></div>
-          <div class="stat"><span class="k">~110</span><span class="v">questions answered verbatim</span></div>
+          <div class="stat"><span class="k">~110</span><span class="v">questions worked through</span></div>
           <div class="stat"><span class="k">6</span><span class="v">interactive labs to play with</span></div>
-          <div class="stat"><span class="k">1</span><span class="v">printable page for the morning of</span></div>
+          <div class="stat"><span class="k">53</span><span class="v">diagrams, drawn not decorative</span></div>
         </div>
 
         <div class="duo">
@@ -1090,26 +1131,28 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
                 menu. Chapter 4 assumes chapter 1&rsquo;s embeddings; chapter 7 assumes chapter 2&rsquo;s
                 non-determinism.</li>
               <li><strong>Answer each question before you open it.</strong> Say it out loud. Then read
-                the model answer and note the gap &mdash; the gap is the actual lesson.</li>
+                the worked answer and note the gap &mdash; the gap is the actual lesson.</li>
               <li><strong>Play with the six labs.</strong> Drag the temperature slider until the
                 model starts producing nonsense; push prevalence down until precision collapses.
                 The controls are the lesson.</li>
               <li><strong>Take the quiz cold</strong> a day later. Recognition is not recall.</li>
-              <li><strong>Print the cheat sheet</strong> and re-read it the morning of.</li>
+              <li><strong>Keep the cheat sheet.</strong> Twenty sentences and a glossary, on one
+                printable page.</li>
             </ol>
           </div>
           <div class="slab">
-            <p class="slab-h">What is actually being tested</p>
+            <p class="slab-h">Why models, not facts</p>
             <p>
-              Not recall. An interviewer asking &ldquo;what does temperature control&rdquo; is checking
-              whether you understand that a model emits a distribution and something else chooses from
-              it. Everyone can recite &ldquo;randomness.&rdquo; The follow-up is where the interview
-              happens.
+              Take &ldquo;what does temperature control?&rdquo; You can answer &ldquo;randomness&rdquo;
+              and be repeating a word. Or you can know that the model emits a probability distribution
+              and something separate chooses from it &mdash; at which point temperature, why identical
+              prompts differ, and why you cannot write an equality test against a model output all stop
+              being three facts and become one idea.
             </p>
             <p>
-              So every chapter here teaches the mechanism first and the phrasing second. When you get a
-              question that is not on the sheet &mdash; and you will &mdash; the mechanism is the only
-              thing that saves you.
+              That is the whole method here: mechanism first, vocabulary second. Facts about this field
+              go stale in months. The mechanisms have not changed since 2017, and they are what let you
+              reason about the model that ships next year.
             </p>
           </div>
         </div>
@@ -1123,7 +1166,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       tokens, how tokens become vectors, what attention actually computes, why context windows are
       finite, and why the model could not possibly have learned anything from your conversation.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>How does an LLM actually work?</li>
         <li>What is next-token prediction?</li>
@@ -1970,9 +2013,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     reproducibility &mdash; follows from that one distinction.</p>
 
   <div class="qa" id="ch1-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the
-      reasoning to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;How does an LLM actually work?&rdquo;</summary>
@@ -1990,7 +2032,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           is most likely next, given everything so far.&rdquo; All the weights are fixed during this
           &mdash; they were set in pre-training and post-training and do not move while you talk to
           it.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying what the model
+        <p class="a-trap"><strong>Going deeper:</strong> saying what the model
           outputs (a distribution over the entire vocabulary, not a sentence) and naming where the
           cost lives (attention is quadratic in sequence length, generation is serial). That signals
           you understand the mechanism, not just the vocabulary.</p>
@@ -2012,7 +2054,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           why prompt wording matters so much (the prompt is the condition), why chain-of-thought
           helps (intermediate tokens become context for later predictions), and why long generations
           drift.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> explicitly killing the
+        <p class="a-trap"><strong>Going deeper:</strong> explicitly killing the
           intentionality framing. &ldquo;It has no plan, no goal, and no representation of the
           answer it is heading toward &mdash; fluency is a side effect of a very good conditional
           distribution.&rdquo; Then note the cost consequence: output tokens are serial, so they are
@@ -2037,7 +2079,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           layers. In a generative model a causal mask zeroes out attention to future positions,
           which is what makes next-token prediction a non-trivial task and forces generation to run
           left to right.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the cost. The
+        <p class="a-trap"><strong>Going deeper:</strong> naming the cost. The
           attention grid is n &times; n per head per layer, so context is quadratic; there is also a
           key-value cache that grows linearly with sequence length. This is why context windows are
           finite and expensive, and it connects the architecture directly to your product&rsquo;s
@@ -2061,7 +2103,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           learned projections, so different heads can specialize in different relationships;
           stacking dozens of layers lets later heads operate on relationships that earlier ones
           already found.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> giving the mechanism
+        <p class="a-trap"><strong>Going deeper:</strong> giving the mechanism
           before the metaphor, and knowing why it is <em>soft</em>. A hard lookup returns one value
           and is not differentiable; a weighted blend of all values is, which is the only reason the
           matching rules can be learned by gradient descent at all.</p>
@@ -2084,7 +2126,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           differ by market; letter-level tasks such as counting characters or reversing strings are
           fighting the representation; and long numbers split in ways that ignore place value, so
           arithmetic should be delegated to a tool rather than prompted harder.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> connecting tokenization
+        <p class="a-trap"><strong>Going deeper:</strong> connecting tokenization
           to a real decision. For example: a multilingual launch changes both cost per request and
           effective context length, so the same feature can be profitable in English and unprofitable
           in Thai &mdash; and you should measure that before pricing, not after.</p>
@@ -2106,7 +2148,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           smaller model, stored in a vector database, and compared by cosine similarity to answer
           &ldquo;which chunks are most like this query.&rdquo; That is the retrieval half of a RAG
           system, and it does not require the generating model at all.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> being unambiguous about
+        <p class="a-trap"><strong>Going deeper:</strong> being unambiguous about
           which kind you mean, and noting that cosine similarity measures direction and deliberately
           ignores magnitude. Bonus: semantic similarity is not the same as relevance or correctness,
           which is exactly why naive vector search retrieves passages that look related and answer
@@ -2130,7 +2172,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           weights means a deliberate offline job: full pre-training, continued pre-training, or
           fine-tuning on a curated dataset, all of which cost real money and need evaluation before
           and after.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> stating the security and
+        <p class="a-trap"><strong>Going deeper:</strong> stating the security and
           compliance implication out loud. &ldquo;Sending data in a prompt does not train the model
           by default &mdash; whether your data is retained or used for training is a contractual and
           configuration question about the provider, not a property of the architecture.&rdquo; That
@@ -2154,7 +2196,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           about which response is better are used to shift behavior. RLHF is the classic recipe;
           direct preference optimization and constitution-style AI feedback are relatives. The exact
           algorithm is a detail. The category is the point.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> using it as a triage rule.
+        <p class="a-trap"><strong>Going deeper:</strong> using it as a triage rule.
           Most behavior a PM complains about &mdash; verbosity, over-refusal, ignoring the output
           schema, wrong tone &mdash; is post-training, and is often addressable with prompting or
           fine-tuning. Most capability a PM wants &mdash; can it reason about this domain at all
@@ -2178,7 +2220,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           &ldquo;record not found&rdquo; error, so failure looks like confidence; no clean way to
           update or delete a single fact, which is a real problem under data-deletion obligations; and
           no guarantee of identical output for identical input once sampling is involved.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> going straight to the
+        <p class="a-trap"><strong>Going deeper:</strong> going straight to the
           architectural fix. If you need provenance, freshness, access control, or auditable
           deletion, keep the facts in a system that has those properties and put the relevant ones in
           the context window at query time. That is retrieval-augmented generation, and framing it as
@@ -2219,6 +2261,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch2" data-ch="2" data-title="Sampling &amp; Context">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;02 <span class="sep">/</span> Sampling &amp; Context</p>
@@ -2228,7 +2271,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       forgot what I said&rdquo; is almost always a statement about your own request rather than about
       the model.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>What does temperature actually control?</li>
         <li>What is the difference between temperature 0 and temperature 2?</li>
@@ -2779,9 +2822,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     actual work, and Chapter 4 is about how to do it.</p>
 
   <div class="qa" id="ch2-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the
-      reasoning to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;What does temperature actually control?&rdquo;</summary>
@@ -2796,7 +2838,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           and the distribution slides toward uniform. With logits of 3.0, 1.0, 0.5, and 0.0, the top
           token holds about 79% at T = 1.0, effectively 100% at T = 0.2, and only about 53% at
           T = 2.0. The model produced identical logits in all three cases.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> refusing the framing that
+        <p class="a-trap"><strong>Going deeper:</strong> refusing the framing that
           temperature is a creativity or confidence dial, and naming the second knob. Top-p truncates
           the tail &mdash; keep the smallest set of tokens whose cumulative probability reaches p and
           delete the rest &mdash; so it sets a floor on how bad a token may be, where temperature
@@ -2819,7 +2861,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           practice: 0 to 0.2 for extraction, classification, and routing, where variation is pure
           downside; 0.7 to 1.0 when you want genuinely different drafts to choose between; nothing
           real at 2.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying
+        <p class="a-trap"><strong>Going deeper:</strong> saying
           &ldquo;near-deterministic&rdquo; rather than &ldquo;deterministic&rdquo; for T = 0, and being
           able to explain why &mdash; floating-point non-associativity plus variable request batching
           on the provider side can shift the logits in the last bits, which flips the argmax whenever
@@ -2843,7 +2885,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           limits, so your batch neighbors can influence your result. Fifth and most common in real
           products: a timestamp, a reordered retrieval result, or one extra history turn means you
           compared what you typed, not what you sent.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the product consequence.
+        <p class="a-trap"><strong>Going deeper:</strong> the product consequence.
           You cannot write an equality assertion against model output, so tests have to assert
           properties &mdash; valid schema, required entity present, a rubric or judge score above
           threshold &mdash; measured across repeated runs rather than once.</p>
@@ -2865,7 +2907,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           Some frameworks remove the middle instead. Mitigations are a sliding window (cheap, loses
           early constraints), summarization or compaction (compact, lossy, costs an extra call, drifts
           when repeated), or retrieval (scales, adds a subsystem that can fetch the wrong thing).</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> adding that a bigger window
+        <p class="a-trap"><strong>Going deeper:</strong> adding that a bigger window
           is not a free upgrade. Models recall content at the start and end of a long context more
           reliably than the middle, so position is a design variable, and because attention cost grows
           with the square of sequence length, long contexts are slower and more expensive. Choosing
@@ -2901,6 +2943,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch3" data-ch="3" data-title="Hallucination">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;03 <span class="sep">/</span> Hallucination</p>
@@ -2909,7 +2952,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       follow-up, explain from first principles why a sterner prompt cannot cure it, and describe the defense,
       the metric, and the redlines you would ship.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>Why do models hallucinate, and what&rsquo;s your move as a PM?</li>
         <li>How would you explain hallucination to an exec?</li>
@@ -3440,9 +3483,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     it is a redline.</p>
 
   <div class="qa" id="ch3-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the
-      reasoning to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;Why do models hallucinate, and what&rsquo;s your move as a PM?&rdquo;</summary>
@@ -3460,7 +3502,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           measure claim-level support on a real eval set every release. Then I contain the blast radius
           by choosing a surface where a wrong answer is cheap, and I give the model an exit and the user
           a human.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming that the failure has a
+        <p class="a-trap"><strong>Going deeper:</strong> naming that the failure has a
           predictable shape rather than being random noise, and therefore that you can predict where
           to test hardest.</p>
       </div>
@@ -3482,7 +3524,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           the target, what does it cost to move, what happens when we breach. What I never say:
           &ldquo;we&rsquo;ll fix it in the prompt,&rdquo; or &ldquo;the next model will fix it&rdquo;
           &mdash; the first is a promise I cannot keep, the second hands my roadmap to a vendor.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> volunteering that it will
+        <p class="a-trap"><strong>Going deeper:</strong> volunteering that it will
           never reach zero, and immediately giving the error-budget frame so that is a plan rather
           than an apology.</p>
       </div>
@@ -3504,7 +3546,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           there is less room to invent. Notice that every one of those either makes the safe action
           available or produces an artifact you can check. Prompting is a steering tool, not a
           correctness mechanism.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> pointing out that raising
+        <p class="a-trap"><strong>Going deeper:</strong> pointing out that raising
           refusals is a failure too, so &ldquo;the stern prompt reduced hallucinations&rdquo; may just
           mean you moved failures into a category nobody reports.</p>
       </div>
@@ -3526,7 +3568,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           but brittle on long context and arithmetic. The judge&rsquo;s failure mode matters: same-family
           judges share blind spots with the generator and reward fluency. And no metric without an eval
           set &mdash; the eval set outlives the prompt, the model, and the vendor.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying that a support rate
+        <p class="a-trap"><strong>Going deeper:</strong> saying that a support rate
           hides severity, so you segment by claim type &mdash; one contradicted dosage is not one-tenth
           as bad as ten unsupported adjectives.</p>
       </div>
@@ -3549,7 +3591,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           design the product to turn as much of the factuality problem as possible into a faithfulness
           problem. I would also note that confidence is part of the definition: the model presents an
           unsupported claim in exactly the same register as a supported one.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> giving the two axes with a
+        <p class="a-trap"><strong>Going deeper:</strong> giving the two axes with a
           concrete example in each off-diagonal quadrant, then explaining why the distinction changes
           what you build.</p>
       </div>
@@ -3573,7 +3615,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           continuously. And contain the blast radius: put the feature where a wrong answer is cheap. In
           production I would also watch abstention rate and human-override rate, because a falling
           hallucination rate with a climbing refusal rate is not progress.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming what leaks through each
+        <p class="a-trap"><strong>Going deeper:</strong> naming what leaks through each
           layer &mdash; retrieval fetches the wrong document, a real quote can support a bad inference,
           a same-family judge shares the generator&rsquo;s blind spots.</p>
       </div>
@@ -3596,7 +3638,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           condition, because absence of evidence is not evidence of absence. For any retrieval product:
           no reference that fails to resolve to a real retrieved document ever reaches the user. Keep
           the list short. A long list of redlines is a list of KPIs with dramatic names.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the test for whether something
+        <p class="a-trap"><strong>Going deeper:</strong> the test for whether something
           truly is one &mdash; if the answer to &ldquo;can we trade this for launch date?&rdquo; is
           &ldquo;let&rsquo;s look at the numbers,&rdquo; it was never a redline.</p>
       </div>
@@ -3630,6 +3672,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch4" data-ch="4" data-title="RAG &amp; Context">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;04 <span class="sep">/</span> RAG &amp; Context</p>
@@ -3639,7 +3682,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       argue about what deserves space in a finite context window. That last skill is the one that
       separates a PM who has shipped from a PM who has read.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>What is RAG and when would you use it?</li>
         <li>Walk through a RAG pipeline end to end</li>
@@ -4238,9 +4281,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     keep an index true.</p>
 
   <div class="qa" id="ch4-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the reasoning
-      to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;What is RAG and when would you use it?&rdquo;</summary>
@@ -4255,7 +4297,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           knowledge cutoff, private data, and hallucination on facts. It also gives you access control
           and auditability, because retrieval respects metadata filters and produces citations, which a
           fine-tuned model cannot.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming what RAG does
+        <p class="a-trap"><strong>Going deeper:</strong> naming what RAG does
           <em>not</em> fix. It does not improve reasoning, tone, or output format, and it introduces a
           whole retrieval subsystem you now have to keep fresh and monitor.</p>
       </div>
@@ -4274,7 +4316,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           from instructions plus the surviving chunks plus the question, generate, and map each chunk
           back to a source pointer for citations. Concretely: 8,400 pages become 40,000 chunks, the
           store returns 20 candidates, a reranker keeps 4, and the prompt lands around 3,800 tokens.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> insisting on the two-phase
+        <p class="a-trap"><strong>Going deeper:</strong> insisting on the two-phase
           split and naming what is tunable at each step. There are roughly a dozen decisions in that
           walk &mdash; chunk size, overlap, embedding model, k, rerank or not, chunk order &mdash; and
           saying so signals you have actually tuned one.</p>
@@ -4294,7 +4336,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           want a small cheap model to match a large one on one narrow task. They compose: a fine-tuned
           small model that reliably emits your schema, fed retrieved evidence, wrapped in a good system
           prompt. Most production systems use two of the three.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> explicitly killing the common
+        <p class="a-trap"><strong>Going deeper:</strong> explicitly killing the common
           error &mdash; fine-tuning is a bad way to teach facts. It is expensive to update, it cannot
           cite, and training on documents does not reliably make their contents retrievable.</p>
       </div>
@@ -4313,7 +4355,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           retrieval usable: the original chunk text, metadata for filtering by tenant, product, version,
           or language, and a source pointer for citations. The index type and its parameters are your
           explicit recall-versus-speed dial.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> two honest caveats. For a few
+        <p class="a-trap"><strong>Going deeper:</strong> two honest caveats. For a few
           thousand documents you may not need one at all &mdash; brute-force scan of an in-memory array
           is milliseconds. And hybrid search, dense vectors fused with BM25 keyword scoring, usually
           beats pure vector search, because exact strings like error codes and product names are
@@ -4335,7 +4377,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           other. In practice, keep a parent-document pointer so you can retrieve small and read large,
           repeat the heading path inside the chunk text, and keep tables intact even when that makes a
           chunk oversized.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying plainly that most RAG
+        <p class="a-trap"><strong>Going deeper:</strong> saying plainly that most RAG
           quality is won or lost here, before any prompt tuning, and that you would test two chunking
           policies against a labeled question set rather than argue about token counts.</p>
       </div>
@@ -4352,7 +4394,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           superseded chunk is stale with a fresh timestamp. Timestamps in metadata plus recency-aware
           ranking, so relevance picks the candidates and recency breaks the ties. And put the current
           date in the system prompt, because the model has no clock.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the two failures people
+        <p class="a-trap"><strong>Going deeper:</strong> the two failures people
           forget. Orphan chunks &mdash; the page was deleted months ago and its chunks are still
           perfectly retrievable. And contradictory versions &mdash; v2.1 and v3.0 of the same policy
           both retrieved into one prompt with nothing telling the model which is current. Fix with
@@ -4373,7 +4415,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           model ignored the evidence, contradicted it, blended it with its own parametric memory,
           picked the wrong one of two passages, or hedged. Fixes live in the prompt, the ordering of
           evidence, the number of chunks, the model choice, and post-generation citation checks.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> why the framing matters. The
+        <p class="a-trap"><strong>Going deeper:</strong> why the framing matters. The
           two halves have completely different fixes, so you must measure them separately &mdash;
           retrieval recall on one dashboard, answer correctness on another. And the diagnostic move:
           before touching the prompt, check the logs for whether the correct chunk was in the assembled
@@ -4394,7 +4436,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           caching embeddings, retrieval results, prompt prefixes, and whole answers cuts both cost and
           latency at the price of invalidation risk; and streaming plus precomputing common queries
           improves perceived latency without changing total work.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> knowing where the time
+        <p class="a-trap"><strong>Going deeper:</strong> knowing where the time
           actually is. Embedding and search are tens of milliseconds; generation is hundreds to
           thousands. So the real latency levers are the ones that shorten the prompt or shrink the
           generator, not the ones that shave milliseconds off search.</p>
@@ -4414,7 +4456,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           attend best to the start and end of a long context and worst to the middle. So context
           engineering is allocation and ordering, backed by a written token budget per section and an
           eviction policy chosen in advance.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> explaining why the discipline
+        <p class="a-trap"><strong>Going deeper:</strong> explaining why the discipline
           shifted. Single-turn chat needed good wording. Agentic products &mdash; many tools, long
           histories, retrieved documents, multi-step loops &mdash; made allocation the binding
           constraint, which is why context engineering became the more important skill.</p>
@@ -4435,7 +4477,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           Then write down a token budget per section: for example, of a 10,000-token budget, 800 for
           instructions, 1,200 for tools, 800 for compacted history, 4,000 for evidence, 1,200 for recent
           turns, 200 for the question, 1,800 reserved for output.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> a pre-decided eviction order
+        <p class="a-trap"><strong>Going deeper:</strong> a pre-decided eviction order
           &mdash; recompact history, then summarize recent turns, then drop the lowest-ranked chunk,
           then prune unused tool definitions, never the instructions or the question. If you do not
           decide it, your framework silently truncates for you and you learn the policy in production.</p>
@@ -4455,7 +4497,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           precise than fuzzy passage matching, and it can aggregate, which retrieval cannot. If the
           question is &ldquo;where is my order,&rdquo; that is a function call with an exact answer.
           And if you have a hard sub-second budget, a retrieval hop plus a longer prompt may not fit.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the cost people miss.
+        <p class="a-trap"><strong>Going deeper:</strong> naming the cost people miss.
           RAG adds an entire retrieval system you must own, monitor, and keep fresh &mdash; ingestion,
           index, deletions, cache invalidation, evals &mdash; plus a second failure mode to debug. That
           ongoing obligation, not the infrastructure bill, is the real price.</p>
@@ -4477,7 +4519,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           retrieval so exact names and codes are not lost, freshness ranking so today&rsquo;s page beats
           last year&rsquo;s, and a grounding instruction that forbids claims not supported by the
           retrieved text.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> treating citations as an
+        <p class="a-trap"><strong>Going deeper:</strong> treating citations as an
           architectural requirement rather than a garnish. Citations are only possible because you kept
           the original text and source pointer next to the vector &mdash; and they are the thing that
           makes retrieval failure and generation failure separately debuggable.</p>
@@ -4499,7 +4541,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           the output so perceived latency is the time to first token, not to completion. That takes an
           illustrative 2.65 seconds total down to about 1.5, and time-to-first-token from roughly 1.25
           to 0.55 seconds.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying what you would measure
+        <p class="a-trap"><strong>Going deeper:</strong> saying what you would measure
           to know you were right. Retrieval recall@k on a fixed labeled set and answer correctness on
           the same set, plotted against p50 and p95 time-to-first-token and cost per resolved question.
           If recall@8 with reranking equals recall@20 without it, the cheaper design wins on evidence
@@ -4539,6 +4581,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch5" data-ch="5" data-title="Tools, Agents &amp; MCP">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;05 <span class="sep">/</span> Tools, Agents &amp; MCP</p>
@@ -4548,7 +4591,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       call step by step, say exactly who executes what, tell an agent apart from a chatbot on control
       flow rather than marketing, and explain why a vague tool description is a production bug.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>An AI feature calls a tool. What actually happens?</li>
         <li>Does the model execute the function? Who does?</li>
@@ -5142,9 +5185,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     Chapter 9 covers that project in full.</p>
 
   <div class="qa" id="ch5-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the
-      reasoning to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;An AI feature calls a tool. What actually happens?&rdquo;</summary>
@@ -5160,7 +5202,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           conversation tagged as the result of that call, and the model continues with the result in
           its context, either answering or requesting another tool. That loop repeats until no tool is
           requested or my step cap is hit.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming what lives in your
+        <p class="a-trap"><strong>Going deeper:</strong> naming what lives in your
           code because of this &mdash; authorization, spend caps, idempotency, retries, the audit
           log, and a confirmation step before anything irreversible.</p>
       </div>
@@ -5178,7 +5220,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           user may take this action, whether the amount is in range, whether the call has already been
           made, and whether a human should confirm first. A model cannot exceed its permissions,
           because it has none. Your executor has them.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the one-liner &mdash; the
+        <p class="a-trap"><strong>Going deeper:</strong> the one-liner &mdash; the
           model chooses, your app acts &mdash; plus the observation that &ldquo;the model did
           something dangerous&rdquo; always means an application executed a request without a check.</p>
       </div>
@@ -5198,7 +5240,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           of real traffic misroutes in a way that depends on wording. That is why descriptions belong
           in version control, in code review, and in an eval suite &mdash; changing one is a behavior
           change deployed to every user, exactly like changing a prompt.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying what a good
+        <p class="a-trap"><strong>Going deeper:</strong> saying what a good
           description contains &mdash; what it does, when to use it, when explicitly <em>not</em> to,
           argument semantics and units, and how it differs from the tool next to it.</p>
       </div>
@@ -5218,7 +5260,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           dates. Treat the schema as your first line of validation, not your only one; your code still
           validates on receipt. And remember the definition is the entire interface: if a rule is not
           in the name, description, or schema, the model does not know it exists.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> pointing out that the
+        <p class="a-trap"><strong>Going deeper:</strong> pointing out that the
           definition costs context tokens on every single request, so tool count and description
           length are a budget decision, not a free one.</p>
       </div>
@@ -5237,7 +5279,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           flow. The costs are all downstream of the loop: unbounded steps, therefore unbounded latency
           and spend; errors that compound across turns; evaluation over trajectories instead of single
           outputs; and real blast radius when the tools can move money or send messages.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the honest test &mdash; if
+        <p class="a-trap"><strong>Going deeper:</strong> the honest test &mdash; if
           you can enumerate the steps ahead of time, write the steps. A fixed chain is cheaper,
           faster, and testable, and most &ldquo;agents&rdquo; in production should have been chains.</p>
       </div>
@@ -5257,7 +5299,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           are context and configuration. None of them modify the weights. That is also why they share
           one budget &mdash; the context window &mdash; and why adding a skill or a tool always has a
           cost measured in tokens.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> noting that a skill may
+        <p class="a-trap"><strong>Going deeper:</strong> noting that a skill may
           contain scripts, and that those scripts are run by the runtime, not by the model &mdash; the
           same choose-versus-do split as tool calling.</p>
       </div>
@@ -5276,7 +5318,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           consequence is budget: every skill, tool definition, and remembered fact you add occupies
           window you no longer have for retrieved evidence or the user&rsquo;s own content. So skill
           and tool sprawl shows up as degraded retrieval quality and higher cost per call.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> connecting it to the only
+        <p class="a-trap"><strong>Going deeper:</strong> connecting it to the only
           things that <em>do</em> change weights &mdash; pretraining and fine-tuning &mdash; and
           saying that if someone needs behavior baked in permanently, prompts, skills, and tools are
           the wrong lever.</p>
@@ -5297,7 +5339,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           Structured state is a database row or profile: the plan tier, the balance, the shipping
           address. The model is stateless, so all of this is something I build outside it and re-inject
           as text.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the hard parts &mdash;
+        <p class="a-trap"><strong>Going deeper:</strong> the hard parts &mdash;
           deciding what is worth storing, resolving contradictions with recency rules or confirmation,
           making forgetting and correction first-class, honoring deletion and consent obligations, and
           accepting that retrieved memory competes for the same window as retrieved evidence.</p>
@@ -5318,7 +5360,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           improving a single step. Around that I add validation gates, per-step retries rather than
           whole-run retries, checkpoints after expensive steps, and a human approval before anything
           irreversible.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> doing the compounding
+        <p class="a-trap"><strong>Going deeper:</strong> doing the compounding
           arithmetic out loud, and saying where the human belongs &mdash; unattended for cheap and
           reversible steps, confirmation for anything that sends, pays, or deletes.</p>
       </div>
@@ -5338,7 +5380,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           hot path: write the integration. Several surfaces, a growing tool list, or a system other
           teams also need to reach: write the server. And whichever you choose, the tool descriptions
           and the permission model are still work you have to do well.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> refusing the framing that
+        <p class="a-trap"><strong>Going deeper:</strong> refusing the framing that
           one is simply better, and naming the security angle &mdash; a broadly scoped server is a
           broadly scoped attack surface, and auth design does not come free with the protocol.</p>
       </div>
@@ -5358,7 +5400,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           guaranteed &mdash; a valid date in the wrong timezone is still valid JSON. The model may
           request several tools at once, and results come back tagged with the call identifier so the
           model can match result to request across a multi-step loop.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the reminder that it is
+        <p class="a-trap"><strong>Going deeper:</strong> the reminder that it is
           still token prediction, so tool choice and arguments are influenced by the descriptions, the
           examples, and the conversation &mdash; and that schema validity is not the same thing as
           being right.</p>
@@ -5379,7 +5421,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           the mechanism is clear: the win is not the connector, it is that nobody ships a new cable
           per pair of devices. It also means swapping models or clients no longer invalidates your
           integration work.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> stating what it does not
+        <p class="a-trap"><strong>Going deeper:</strong> stating what it does not
           solve &mdash; description quality, permissions and auth, and agent reliability are all still
           yours, and a standard protocol makes none of them automatic.</p>
       </div>
@@ -5417,6 +5459,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch6" data-ch="6" data-title="Orchestration">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;06 <span class="sep">/</span> Orchestration</p>
@@ -5426,7 +5469,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       stack, choose between a raw API call, a chain, a graph, and a fleet of agents, and do the arithmetic
       that shows when routing to a cheaper model pays for itself.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>How does LangChain work? When to use it here?</li>
         <li>LangChain vs LangGraph: what&rsquo;s the difference?</li>
@@ -5969,9 +6012,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     that must not be the thing being verified.</p>
 
   <div class="qa" id="ch6-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the reasoning
-      to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;What are the four layers of the AI product stack?&rdquo;</summary>
@@ -5988,7 +6030,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           push. Application is the interface, the workflow integration, and the feedback loop; owned
           entirely by you and worth keeping for years. The strategic conclusion is the point of the
           framing: layers one and two commoditize, so durable value concentrates in three and four.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying out loud that other
+        <p class="a-trap"><strong>Going deeper:</strong> saying out loud that other
           people slice this differently &mdash; some add a data layer, some fold orchestration into the
           application &mdash; and that what matters is a coherent framing where every real component has
           exactly one home, and that you can name what follows from it.</p>
@@ -6010,7 +6052,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           churn between versions, and a team can end up expert in the framework rather than in the
           system. So: yes for spikes, demos, and integration-heavy glue; think twice for the code path
           serving live traffic where latency, cost, and debuggability all bite.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> being neutral rather than
+        <p class="a-trap"><strong>Going deeper:</strong> being neutral rather than
           tribal about it, and naming the specific failure mode &mdash; you cannot print the exact bytes
           you sent, so you cannot reason about quality or cost.</p>
       </div>
@@ -6029,7 +6071,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           approval checkpoints expressible rather than bolted on. The rule of thumb: a chain when the
           path is known ahead of time, a graph when the path depends on what happens at run time &mdash;
           which is precisely the condition that defines an agent.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> connecting it to durability and
+        <p class="a-trap"><strong>Going deeper:</strong> connecting it to durability and
           operations rather than expressiveness &mdash; graphs give you persisted state, so a run can
           survive a deploy and resume, and that is often the actual reason a team adopts one.</p>
       </div>
@@ -6048,7 +6090,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           in a layer you did not write, and a new engineer can read the whole path in ten minutes. The
           framework earns its place when you have breadth &mdash; many integrations, many branches, many
           steps &mdash; not when you have depth on one call.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> framing the deliberate choice
+        <p class="a-trap"><strong>Going deeper:</strong> framing the deliberate choice
           of the simple path as a senior signal. The naive move is reaching for the framework you have
           heard of; the senior move is naming the trigger that would make you adopt one later.</p>
       </div>
@@ -6067,7 +6109,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           abstraction lags the underlying API you either wait for the wrapper or reach around it and lose
           the reason you adopted it. In language-model products the prompt, the context assembly, and the
           token accounting are the product&rsquo;s substance, so hiding them is not a neutral trade.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> giving a usable test rather
+        <p class="a-trap"><strong>Going deeper:</strong> giving a usable test rather
           than a list. Does this abstraction hide something I will need to debug at 3am? If yes, keep it
           out of the hot path, or require that it log the exact request it sent.</p>
       </div>
@@ -6088,7 +6130,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           do not need orchestration yet. Premature orchestration is a leading cause of AI features that
           are slow, expensive, and unexplainable when they break, because every added hop adds latency,
           a failure mode, and a thing to learn.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> volunteering the exit criteria
+        <p class="a-trap"><strong>Going deeper:</strong> volunteering the exit criteria
           in advance &mdash; naming the metric or the observed failure that would make you add the next
           layer of machinery, so the decision is evidence-driven rather than aesthetic.</p>
       </div>
@@ -6109,7 +6151,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           weak, and fallback, which is defensive failover when the chosen model is rate-limited or down.
           The benefit is not only cost: cheap models are usually faster, so a large share of traffic gets
           a better experience too.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying that routing is a
+        <p class="a-trap"><strong>Going deeper:</strong> saying that routing is a
           scale-earned optimization, not a default. At low volume, or with uniformly hard traffic, one
           good model and no router is the better engineering decision.</p>
       </div>
@@ -6130,7 +6172,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           Measurable, so you report routing accuracy against a labeled set, escalation rate, and cost per
           resolved request. Versioned and re-evaluated, because request distribution drifts as your
           product changes and users learn what it can do.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the cost of the router
+        <p class="a-trap"><strong>Going deeper:</strong> naming the cost of the router
           itself &mdash; one more component that can be wrong, extra latency, and a second model to
           evaluate and keep honest &mdash; and being willing to conclude that sometimes the right answer
           is no router.</p>
@@ -6151,7 +6193,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           reduction, with escalations as the second-largest line item even at a modest rate. That is
           about $2 million a year at this volume, which on many products is the difference between
           software-like gross margin and services-like gross margin.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the direction of the trap. A
+        <p class="a-trap"><strong>Going deeper:</strong> the direction of the trap. A
           cheap model that fails and escalates charges you twice and delivers a slower, worse answer, so
           a change that lowers cost per call while raising cost per resolved request is a regression
           dressed up as a win.</p>
@@ -6173,7 +6215,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           join, including what happens when branches disagree. Give every agent a step budget and a spend
           budget, and treat hitting them as a normal handled outcome. Checkpoint after each step so a
           failure at step four resumes at step four.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the arithmetic and the
+        <p class="a-trap"><strong>Going deeper:</strong> the arithmetic and the
           reluctance. At 95 percent per-step reliability, ten steps completes about 60 percent of the time
           and four agents of eight steps each completes about 19 percent. So multi-agent is a last resort,
           and the best answer names the specific reason one agent with more tools would not do &mdash;
@@ -6214,6 +6256,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch7" data-ch="7" data-title="Evals &amp; Metrics">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;07 <span class="sep">/</span> Evals &amp; Metrics</p>
@@ -6223,7 +6266,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       whiteboard, defend a precision/recall trade-off to a stakeholder, and triage a quality drop in the right order
       rather than the panicked order.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>How would you eval this feature before launch?</li>
         <li>Whiteboard an evaluation framework from scratch</li>
@@ -6790,9 +6833,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     set &mdash; that is how the gap narrows.</p>
 
   <div class="qa" id="ch7-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the reasoning to back it
-      up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;How would you eval this feature before launch?&rdquo;</summary>
@@ -6808,7 +6850,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           and a noise floor by running the unchanged system repeatedly. Set launch thresholds and redlines with
           stakeholders before I see any results. Run it in CI, then canary on a small traffic slice with online metrics
           and a rollback path.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the baseline and the noise floor
+        <p class="a-trap"><strong>Going deeper:</strong> naming the baseline and the noise floor
           unprompted, and saying explicitly that offline evals are a filter for breakage rather than evidence of user
           value &mdash; which is why the canary is part of the pre-launch plan, not an afterthought.</p>
       </div>
@@ -6827,7 +6869,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           and I stop as low as I can. Thresholds separate into tradeable metrics and hard redlines that block a release
           outright. CI makes it automatic. The return arrow from production makes it compound, because every real
           failure becomes a permanent case.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying out loud that a framework whose
+        <p class="a-trap"><strong>Going deeper:</strong> saying out loud that a framework whose
           numbers nobody acts on is theater, and offering the test for it &mdash; has a red number ever stopped a
           release here?</p>
       </div>
@@ -6847,7 +6889,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           keep humans grading a permanent sampled subset to catch drift, prefer pairwise comparisons with randomized
           order over absolute scores, use a different model family than the one under test, and version the rubric like
           code because changing it invalidates history.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> quoting a concrete agreement number and then
+        <p class="a-trap"><strong>Going deeper:</strong> quoting a concrete agreement number and then
           deriving the resolution limit from it &mdash; if the judge agrees with humans 87% of the time, it cannot
           adjudicate a two-point difference.</p>
       </div>
@@ -6866,7 +6908,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           true. If missing toxic content costs a hundred times more than an unnecessary review, F1 points the wrong
           way, and I would weight it or report the pair against a stated threshold instead. Lowering the threshold moves
           us up the recall axis and down the precision axis; that dial is ours to set.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> never presenting the pair without stating
+        <p class="a-trap"><strong>Going deeper:</strong> never presenting the pair without stating
           which error you have chosen to make more often and why, in the language of cost to the business.</p>
       </div>
     </details>
@@ -6885,7 +6927,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           Then establish the noise floor by running the unchanged system several times and seeing how much the score
           wobbles on its own. That becomes the bar: a change smaller than the noise floor is not a result, no matter
           how good the story around it is.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> volunteering that your own metric is noisy
+        <p class="a-trap"><strong>Going deeper:</strong> volunteering that your own metric is noisy
           and that you have quantified it. Most candidates treat the eval as an oracle and worry only about the
           model&rsquo;s randomness.</p>
       </div>
@@ -6904,7 +6946,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           let me attribute a failure to a stage. End-to-end scenario evals check that the stages compose into the user
           outcome. Human review and online experimentation sit at the top because they are the only things that can
           tell me the rubric itself is wrong.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> pointing out that most AI teams have an
+        <p class="a-trap"><strong>Going deeper:</strong> pointing out that most AI teams have an
           inverted pyramid &mdash; all vibes at the top, nothing at the base &mdash; and that the first week of work on
           a struggling AI product is usually building the base, not tuning the prompt.</p>
       </div>
@@ -6922,7 +6964,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           shadow the new model on real traffic, or canary a small slice, before cutover. In production I pin an explicit
           model version with a documented upgrade path, and I keep the previous version live so rollback is a config
           change rather than a project.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the trap concretely &mdash; aggregate
+        <p class="a-trap"><strong>Going deeper:</strong> naming the trap concretely &mdash; aggregate
           went up four points so we shipped, and the workflow generating most of the revenue silently collapsed.
           Per-segment analysis is what makes an aggregate safe to read at all.</p>
       </div>
@@ -6941,7 +6983,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           because prompts contain user data &mdash; so I want short retention on raw prompts, redaction of identifiers,
           a consented longer-lived subset for eval use, and access control, decided with legal in advance rather than
           during an incident.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the trace id and the privacy trade-off.
+        <p class="a-trap"><strong>Going deeper:</strong> the trace id and the privacy trade-off.
           Anyone can list fields to log; connecting the chain end to end and admitting that full-fidelity logging
           conflicts with retention policy is the senior move.</p>
       </div>
@@ -6960,7 +7002,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           signals &mdash; edits, retries, abandonment, acceptance &mdash; because they are far higher volume and less
           biased than explicit ratings, which only annoyed users leave. Route flagged cases to reviewers with full
           context so review costs seconds. And close the loop: labels become eval cases and prioritized work.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the failure mode &mdash; collecting
+        <p class="a-trap"><strong>Going deeper:</strong> naming the failure mode &mdash; collecting
           feedback nobody ever uses. A thumbs-down writing to a table no one queries is worse than no button, because
           it buys the team false comfort.</p>
       </div>
@@ -6979,7 +7021,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           that is served badly? And is there a gap between eval and production &mdash; different prompt template,
           different retrieval config, an unpinned model version, context that only exists in the real request path?
           Whatever I find becomes a permanent case in the eval set.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> framing the gap as expected rather than
+        <p class="a-trap"><strong>Going deeper:</strong> framing the gap as expected rather than
           embarrassing. Offline evals are a filter for obvious breakage, not proof of user value; the job is to shrink
           the gap case by case, not to be surprised by it.</p>
       </div>
@@ -6998,7 +7040,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           first and re-measure, because you cannot judge generation on garbage input. For faithfulness I decompose the
           answer into individual claims and check each against the retrieved text, which also gives me a per-claim
           failure rate rather than a vague score.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> stating plainly that a single blended quality
+        <p class="a-trap"><strong>Going deeper:</strong> stating plainly that a single blended quality
           score tells you which of those four situations you are in &mdash; never. That is the whole reason for the
           split.</p>
       </div>
@@ -7016,7 +7058,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           models behind an alias, so a system nobody touched can degrade overnight, which is the argument for pinning
           versions and keeping a frozen regression suite you can rerun on demand to separate &ldquo;the world
           changed&rdquo; from &ldquo;we changed&rdquo;.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying why the runbook exists. Under pressure
+        <p class="a-trap"><strong>Going deeper:</strong> saying why the runbook exists. Under pressure
           the default move is to start rewriting the prompt, which is simultaneously the least likely cause and the
           change hardest to attribute afterward, because it alters everything at once.</p>
       </div>
@@ -7036,7 +7078,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           every prompt or model change runs it. Close the loop from production failures back into the dataset. Finish
           with what would make me distrust the framework: no noise floor, no per-segment view, and no red number that
           has ever blocked a ship.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> talking about organizational behavior, not
+        <p class="a-trap"><strong>Going deeper:</strong> talking about organizational behavior, not
           just architecture. Who owns the eval set, who is allowed to change the rubric, and what happens when the gate
           goes red on a date the company has already announced.</p>
       </div>
@@ -7074,6 +7116,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch8" data-ch="8" data-title="System Design">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;08 <span class="sep">/</span> System Design</p>
@@ -7082,7 +7125,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       question you have never seen, structure it in eight moves, put rough numbers on latency, quality
       and cost, and say out loud when the correct design contains no LLM at all.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>Design an AI feature: summarize unread messages</li>
         <li>Latency vs quality vs cost: how do you trade them off?</li>
@@ -7671,9 +7714,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     your industry &mdash; a much better model &mdash; is also the best thing that can happen to you.</p>
 
   <div class="qa" id="ch8-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the reasoning
-      to back it up if they push.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;Design an AI feature: summarize unread messages&rdquo;</summary>
@@ -7691,7 +7733,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           app-open is a 150&nbsp;ms cache read instead of a three-second wait. Cost is roughly six cents
           per active user per day at illustrative prices, so v1 is paid-tier only. Privacy is a first-class
           requirement: zero retention, in-region processing, no training on content, easy opt-out.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the input-size spread of
+        <p class="a-trap"><strong>Going deeper:</strong> naming the input-size spread of
           three orders of magnitude, refusing to summarize short threads at all, and stating that the
           feature takes no actions &mdash; a wrong summary is recoverable, a wrong auto-archive is not.</p>
       </div>
@@ -7712,7 +7754,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           user sees something useful. Streaming, optimistic UI and precomputation move the second without
           touching the first. So the order is: cache, stream, precompute, then shorten context, then route
           easy requests to a smaller model, and only then consider a bigger model.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> budgets in milliseconds per
+        <p class="a-trap"><strong>Going deeper:</strong> budgets in milliseconds per
           stage derived from the UX, quoted at p95 rather than average, with a named component that has to
           be precomputed because it cannot fit its slice.</p>
       </div>
@@ -7733,7 +7775,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           floor an API cannot hit. On total cost of ownership, the model is rarely the expensive part
           &mdash; the data pipeline, evals, monitoring and the people are. Then the strategic frame: is
           this a differentiator or table stakes? Rent table stakes, own what customers choose you for.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> making the eval set the
+        <p class="a-trap"><strong>Going deeper:</strong> making the eval set the
           precondition for every move. Without one you cannot tell whether the fine-tune helped, so you
           are buying a maintenance burden on a hunch.</p>
       </div>
@@ -7753,7 +7795,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           it, that is the answer, especially when labels are abundant and crisp. The practical version of
           this discipline is the hybrid design: classical core for the decision, LLM at the edges for
           language.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> volunteering a case in your own
+        <p class="a-trap"><strong>Going deeper:</strong> volunteering a case in your own
           product where you removed a model. Saying &ldquo;we replaced the classifier prompt with twelve
           lines of rules and quality went up&rdquo; lands harder than any architecture.</p>
       </div>
@@ -7773,7 +7815,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           sees the row as a sentence, produces a probability-shaped string that is not a measured
           frequency, costs orders of magnitude more per prediction, is slower, drifts when the provider
           updates, and was never trained on your outcome.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying <em>why</em> trees fit
+        <p class="a-trap"><strong>Going deeper:</strong> saying <em>why</em> trees fit
           tables rather than asserting it, then immediately naming where the LLM does belong &mdash;
           converting unstructured text into features that feed the tree.</p>
       </div>
@@ -7792,7 +7834,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           LLM writes SQL, the database computes the numbers, and the query is shown to the user, so the
           model never does arithmetic. In each case the routing rule is written down, not implied, and the
           number that drives money never comes out of a language model.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the routing rule and its
+        <p class="a-trap"><strong>Going deeper:</strong> naming the routing rule and its
           threshold, plus what happens when the LLM edge fails &mdash; the classical core keeps working
           with slightly worse features rather than the feature going dark.</p>
       </div>
@@ -7813,7 +7855,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           As a PM the number I care about is cost per active user per month against revenue per active user
           per month, and the levers are caching, routing to smaller models, shorter context, and
           precomputation.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> connecting it to gross margin
+        <p class="a-trap"><strong>Going deeper:</strong> connecting it to gross margin
           rather than to hardware trivia, and noting that inference cost per token has fallen fast and
           repeatedly, so a feature that is marginal today may be fine in a year.</p>
       </div>
@@ -7834,7 +7876,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           $10 a month, that is $10M of monthly revenue and inference is 45% of it, which does not ship. So
           the levers: cache aggressively, route easy requests to a small model, shorten context, precompute
           on write instead of on read, cap steps per task, and rate-limit the heaviest 1%.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> pricing input and output
+        <p class="a-trap"><strong>Going deeper:</strong> pricing input and output
           separately, and ending on unit economics rather than on a total. The number is a means to
           &ldquo;does this business work.&rdquo;</p>
       </div>
@@ -7855,7 +7897,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           search instead of retrieval or the raw message instead of the summary. Finally the UI has to fail
           honestly &mdash; &ldquo;I could not read that file&rdquo; beats a confident summary of a file
           that was never read.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> bounding the retry. Unbounded
+        <p class="a-trap"><strong>Going deeper:</strong> bounding the retry. Unbounded
           self-correction loops are how a $0.02 request becomes a $6 request, so retries carry a counter
           and a spend cap.</p>
       </div>
@@ -7877,7 +7919,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           trade-off, because pretending it is free is the weak answer: guardrails add latency and cost, and
           their false positives frustrate legitimate users, so the threshold is tuned against the cost of
           each error type.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> putting the strongest guardrail
+        <p class="a-trap"><strong>Going deeper:</strong> putting the strongest guardrail
           on <em>tools</em> rather than on text. Restricting what the system can do is enforceable;
           instructing a model not to misbehave is a preference.</p>
       </div>
@@ -7896,7 +7938,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           eval set is the contract a candidate model has to pass. The payoff is that a better model becomes
           an upgrade I take on a Tuesday rather than a rewrite I fear, and I can benefit from a competitor
           of my provider without touching product code.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the inversion &mdash; if a
+        <p class="a-trap"><strong>Going deeper:</strong> the inversion &mdash; if a
           10&times; better model would kill your product, your product was the model. Say what you would
           still own in that world.</p>
       </div>
@@ -7916,7 +7958,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           worth giving: use an LLM on the parts that are language &mdash; turning support tickets and call
           transcripts into sentiment, complaint-category and escalation features &mdash; and let those feed
           the tree. Then use it again at the end to write the account manager a readable explanation.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> that the interesting question is
+        <p class="a-trap"><strong>Going deeper:</strong> that the interesting question is
           not model choice but whether the prediction changes any action. A perfectly calibrated churn
           score with no retention playbook attached is a dashboard, not a product.</p>
       </div>
@@ -7936,7 +7978,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           extraction, a mid-tier model for the default path, a frontier model behind a router for the hard
           minority, and everything pinned to a version behind one interface so swapping is a config
           change.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> treating cheapest-that-clears as
+        <p class="a-trap"><strong>Going deeper:</strong> treating cheapest-that-clears as
           the objective rather than best-available, and having a routing rule that decides at runtime which
           bucket a request falls into.</p>
       </div>
@@ -7956,7 +7998,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           each token requires streaming the weights past the compute units. That is why the weights must
           fit in VRAM &mdash; spilling to system memory collapses throughput &mdash; and why batching many
           concurrent requests is nearly free and is the core economics of serving.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming memory bandwidth rather
+        <p class="a-trap"><strong>Going deeper:</strong> naming memory bandwidth rather
           than only core count, and separating prefill from decode. That distinction is exactly why input
           tokens are cheap and output tokens are expensive.</p>
       </div>
@@ -7977,7 +8019,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           &mdash; concentrating on one provider is faster to build and a real dependency risk, which is why
           the abstraction layer and the pinned versions are part of the selection decision, not an
           afterthought.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> saying that model selection is a
+        <p class="a-trap"><strong>Going deeper:</strong> saying that model selection is a
           per-task decision inside a portfolio, not a company-wide standard, and that the eval set is what
           makes the trade-off measurable instead of aesthetic.</p>
       </div>
@@ -7998,7 +8040,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           via precomputation and about six cents per active user per day; evaluation is 200 human-written
           summaries scored for action-item recall plus a thumbs-down stream; and v1 is direct messages,
           top three threads, paid tier, one language.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> checking in after the framing
+        <p class="a-trap"><strong>Going deeper:</strong> checking in after the framing
           step, and narrating the trade-off at each choice rather than presenting a finished architecture.
           They are scoring the reasoning, not the boxes.</p>
       </div>
@@ -8022,7 +8064,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           eval and monitoring pipeline. Fallbacks throughout: a smaller model on capacity failure,
           retrieval-free answers when retrieval times out, and an honest error rather than a fabricated
           answer.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> putting caching and difficulty
+        <p class="a-trap"><strong>Going deeper:</strong> putting caching and difficulty
           routing before the model call rather than after, and treating the logging path as a first-class
           component &mdash; that is the loop that improves the system.</p>
       </div>
@@ -8044,7 +8086,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           a higher price. And I remember the time axis: frontier capability gets much cheaper on a fairly
           reliable schedule, so part of the decision is what I learn by building now versus what I can
           simply wait for.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the eval-driven test. 10&times;
+        <p class="a-trap"><strong>Going deeper:</strong> the eval-driven test. 10&times;
           on a public benchmark is frequently 1.1&times; on your task, so you measure per segment on your
           own set before committing a single dollar of margin.</p>
       </div>
@@ -8082,16 +8124,14 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
 <section class="ch" id="ch9" data-ch="9" data-title="The Interview">
   <header class="ch-head">
     <p class="eyebrow">CH&middot;09 <span class="sep">/</span> The Interview</p>
-    <h2>The interview scores your reasoning, not your r&eacute;sum&eacute; &mdash; but it needs something real to reason about</h2>
-    <p class="ch-lede">Everything before this chapter was knowledge. This one is delivery: a repeatable shape for
-      an answer, a script for the moment you do not know something, and an honest strategy for the questions
-      that assume years of experience you have not had yet. After this you will know exactly what to build
-      between now and your first interview, and exactly how to talk about it.</p>
+    <h2>Explaining what you know &mdash; and building something worth explaining</h2>
+    <p class="ch-lede">Everything before this chapter was knowledge. This one is delivery: a repeatable shape for explaining a technical idea, a script for the moment you do not know something, and a method for describing your own work with enough rigour that people believe you. Interviews run as the worked example throughout, because they are the most demanding version of the problem &mdash; but the underlying skill is explaining AI to people who do not build it, which you will need far more often.</p>
     <div class="ch-meta">
-      <p class="ch-meta-h">Questions from the sheet this chapter answers</p>
+      <p class="ch-meta-h">What you will be able to explain after this chapter</p>
       <ul class="ch-covers">
         <li>Walk me through an AI feature you shipped and the model choices behind it</li>
         <li>Google: What AI agents have you built to be more productive?</li>
@@ -8372,11 +8412,11 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
       mention a model, a metric name, or a technique.</figcaption>
   </figure>
 
-  <h3 id="ch9-s5">The experience questions, when you have no experience</h3>
+  <h3 id="ch9-s5">Describing your own work credibly</h3>
 
   <p>Now the hard part. Several questions on the sheet assume a professional history: walk me through a feature
     you shipped, what agents have you built, have you built end-to-end agentic systems, when did you go deep to
-    diagnose an ML problem. You are eighteen and have not shipped a feature at a company. Pretending otherwise is
+    diagnose an ML problem. If you have not shipped one inside a company, pretending otherwise is
     dishonest and, practically, fatal &mdash; a fabricated shipping story fails at rung three, when they ask why
     you chose that model over the obvious alternative.</p>
 
@@ -8528,7 +8568,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     candidate who inflates gets the opposite: expectations set high, then a slow collapse over four follow-up
     questions.</p>
 
-  <h3 id="ch9-s6">A preparation plan, and an honest word about being eighteen</h3>
+  <h3 id="ch9-s6">A study plan, and an honest word about experience</h3>
 
   <p>Read the site straight through once, in order, without stopping to take notes. Then go back and split the
     material into two tiers. Most of it you only need to <em>recognize</em>: hear the term, define it, discuss it
@@ -8601,7 +8641,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
   <p class="callout"><strong>The idea in one line.</strong> Four whiteboardable explanations, four built projects,
     one answer shape, and one honest script for not knowing. That is the whole preparation.</p>
 
-  <p>Last, the honest frame. Being eighteen is not the disqualifier. The disqualifier is the absence of
+  <p>Last, the honest frame. A thin track record in AI specifically is not the disqualifier. The disqualifier is the absence of
     demonstrated judgment, and judgment is demonstrable through built work at any scale &mdash; which is
     genuinely good news, because it is the one input you fully control. But know the shape of the market: most
     roles titled &ldquo;technical AI PM&rdquo; expect prior product experience, often years of it, and applying
@@ -8613,11 +8653,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
     it: by reading, and then by building something small and paying close attention when it broke.</p>
 
   <div class="qa" id="ch9-answers">
-    <h3 class="qa-h">Answers &mdash; every question from this section</h3>
-    <p class="qa-note">Each answer opens with the sentence you actually say out loud, then the reasoning to back
-      it up if they push. These four are built on plausible self-built projects. They are templates to fill with
-      your own real work &mdash; never scripts to recite. An answer with someone else&rsquo;s details in it fails
-      at the first follow-up.</p>
+    <h3 class="qa-h">Questions this chapter answers</h3>
+    <p class="qa-note">Try answering each one out loud before you open it. The gap between what you said and what is written below is the part you have not learned yet &mdash; that gap is the whole point of this section.</p>
 
     <details class="q">
       <summary>&ldquo;Walk me through an AI feature you shipped and the model choices behind it&rdquo;</summary>
@@ -8636,7 +8673,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           near zero until I chunked on headings instead. What I measured: retrieval hit rate at top five,
           answer accuracy against my labels, and cost per question. What I would do differently: build the eval
           set before writing any code, because I spent two weeks tuning against my own impressions.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> naming the option you rejected and why,
+        <p class="a-trap"><strong>Going deeper:</strong> naming the option you rejected and why,
           and having a real number attached to the model choice. &ldquo;I picked the cheaper model because it was
           good enough&rdquo; is a vibe. &ldquo;Four accuracy points for eight times the cost, and here is where I
           put the boundary&rdquo; is a decision.</p>
@@ -8660,7 +8697,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           context and started retrieving only the sections that matched my notes. Cost per item dropped by
           roughly two thirds with no drop in my agreement with its decisions, which I checked on thirty items by
           hand.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> talking about termination, error
+        <p class="a-trap"><strong>Going deeper:</strong> talking about termination, error
           handling and cost per task rather than about capability. Anyone can describe an agent that works on a
           good day. Describing the stopping rule, the retry policy and the cost curve is what signals you have
           run one for more than an afternoon.</p>
@@ -8683,7 +8720,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           human-in-the-loop approval step, and I have never run it against a corpus large enough for retrieval
           quality to degrade. Those four are exactly what I would expect to be hard at Glean&rsquo;s scale, and
           I would rather name them than pretend I have solved them.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> volunteering the boundary before they
+        <p class="a-trap"><strong>Going deeper:</strong> volunteering the boundary before they
           find it. Saying &ldquo;no permissions model, no approval step, and I have not stressed retrieval at
           scale&rdquo; converts a gap into evidence of judgment. Waiting for them to discover the same gap
           converts it into evidence of overclaiming.</p>
@@ -8707,7 +8744,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
           those fourteen went from three to twelve, and I re-ran the full eighty-question set to make sure I had
           not broken anything else, which I had not. The generalizable lesson is that in a multi-stage system,
           you localize before you fix, and the loudest symptom is almost never where the bug lives.</p>
-        <p class="a-trap"><strong>What separates a strong answer:</strong> the ruling-out step. Bypassing
+        <p class="a-trap"><strong>Going deeper:</strong> the ruling-out step. Bypassing
           retrieval to test generation in isolation is what a debugger does; guessing and changing the prompt is
           what everyone else does. Also: re-running the full eval after the fix, so you can say you did not trade
           one failure for another.</p>
@@ -8745,7 +8782,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
        "“The classifier operates on a probability threshold that we can tune in either direction depending on your needs.”"],
      "correct": 1,
      "why": "It leads with the business consequence, quantifies in units the stakeholder owns, and hands them the trade-off as a decision — with no mechanism and no second analogy."},
-    {"ch": 9, "q": "For someone with no professional history, what makes a project story credible in an interview?",
+    {"ch": 9, "q": "What makes a story about your own project credible to a technical listener?",
      "options": ["The number of users it reached",
        "Using the same tools and model providers that large companies use",
        "Specificity: the option you rejected, what broke, what you measured, and what you would change",
@@ -8764,21 +8801,19 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
+
 <section class="ch sheet" id="sheet" data-ch="10" data-title="Cheat Sheet">
   <header class="ch-head">
     <p class="eyebrow">REFERENCE <span class="sep">/</span> Cheat Sheet</p>
-    <h2>The one page to re-read before the interview</h2>
-    <p class="ch-lede">This is the whole datasheet compressed: twenty load-bearing sentences, the
-      handful of formulas worth holding in your head, the trade-off tables, the answers that get
-      candidates rejected, and a glossary of every term the site uses. It is built to be printed
-      &mdash; press print and the navigation, the hero and the quiz drop away, leaving the paper you
-      want on the train.</p>
+    <h2>The one page worth keeping</h2>
+    <p class="ch-lede">The whole datasheet compressed: twenty load-bearing sentences, the handful of formulas worth holding in your head, the trade-off tables, the widely held beliefs that are simply wrong, and a glossary of every term the site uses. It is built to be printed &mdash; press print and the navigation, the hero and the labs drop away, leaving just the paper.</p>
     <div class="ch-meta">
       <p class="ch-meta-h">How to use this page</p>
       <ul class="ch-covers">
         <li>Read the twenty lines slowly. If any one of them surprises you, go back to its chapter.</li>
         <li>Do the arithmetic in the formulas section once by hand, out loud.</li>
-        <li>Read the traps last, right before you walk in &mdash; they are the fastest way to lose a round.</li>
+        <li>Read the traps last. They are the beliefs most people hold that do not survive contact with a real system.</li>
         <li>Use the glossary as a cold check: cover the definition, say it yourself, then compare.</li>
       </ul>
     </div>
@@ -8947,7 +8982,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
   <div class="table-wrap">
     <table>
-      <caption>The formulas that come up in interviews, with the arithmetic done once</caption>
+      <caption>The formulas worth knowing, with the arithmetic done once</caption>
       <thead>
         <tr>
           <th scope="col">Quantity</th>
@@ -9130,7 +9165,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
   <h3 id="sheet-tradeoffs">The trade-off tables</h3>
 
-  <p>Three decisions come up in nearly every interview. Learn the shape of each table, not the wording
+  <p>Three decisions come up in nearly every AI product. Learn the shape of each table, not the wording
     &mdash; then in the room you say the axis first (&ldquo;this is a facts problem, not a form
     problem&rdquo;) and the choice follows.</p>
 
@@ -9259,7 +9294,7 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
   <h3 id="sheet-traps">The traps</h3>
 
-  <p>Each of these is a specific sentence that has ended interviews. They are all reasonable-sounding,
+  <p>Each of these is a specific claim that collapses under one follow-up question. They are all reasonable-sounding,
     which is exactly why they are tested.</p>
 
   <ul>
@@ -9796,13 +9831,15 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 </section>
 
 
+
+
       <section id="index-sec">
         <div class="ch-head">
           <p class="eyebrow">Reference <span class="sep">/</span> Question index</p>
           <h2>Every question, searchable.</h2>
           <p class="ch-lede">
-            All the questions from the sheet, in one list. Type to filter &mdash; then click through to
-            the worked answer in context.
+            All ninety questions in one list. Type to filter &mdash; then click through to the worked
+            answer in the chapter that explains it.
           </p>
         </div>
         <div class="idx-tools">
@@ -9827,12 +9864,86 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
         <div id="quiz-list"></div>
       </section>
 
+      <section id="about-sec">
+        <div class="ch-head">
+          <p class="eyebrow">About <span class="sep">/</span> Who wrote this</p>
+          <h2>Diogo Pat&atilde;o</h2>
+          <p class="ch-lede">
+            I run operations for a crypto investment group, and I build things with AI agents on the
+            side. This site is one of those things.
+          </p>
+        </div>
+
+        <div class="bio">
+          <div class="bio-body">
+            <p>
+              I am <strong>Chief of Staff at Stake Capital Group</strong>, a Luxembourg-based crypto
+              investment group, where the job is mostly unglamorous plumbing: installing OKRs, weekly
+              operating cadences, KPI dashboards, and clear ownership across product, sales, finance,
+              HR, and legal. I am also <strong>General Manager at Rekt News</strong>, which does
+              investigative journalism on crypto security failures &mdash; a useful education in how
+              systems break when nobody is measuring them.
+            </p>
+            <p>
+              Before that I worked in venture building at <strong>Demium Startups</strong> and in
+              venture capital at <strong>Portugal Ventures</strong> and <strong>Alpac Capital</strong>.
+              My master&rsquo;s thesis at ISCTE was on whether the MACD technical indicator actually
+              predicts anything, which in hindsight was the same lesson this site keeps repeating: a
+              claim without an evaluation set is not a claim, it is a feeling.
+            </p>
+            <p>
+              I also run <strong>10Q Capital</strong>, a public observability lab where three
+              AI-managed portfolios trade paper money and every step of the reasoning is captured in
+              the open, each thesis carrying explicit kill conditions. I was always drawn to capital
+              markets and never had enough time, knowledge, or discipline to do well at them alone.
+              Agents change that arithmetic, and I would rather test that claim in public than assert
+              it.
+            </p>
+            <p>
+              Which is roughly why this exists. I wanted to genuinely understand what is happening
+              inside the models I am handing work to &mdash; not the vocabulary, the mechanisms. The
+              fastest way to find out whether you understand something is to try to explain it from
+              first principles to someone who knows nothing, so I wrote the thing I wanted to read
+              when I started. It is free, there is nothing to sign up for, and if you find an error I
+              would genuinely like to know.
+            </p>
+            <p>
+              Based in Lisbon.
+            </p>
+          </div>
+
+          <aside class="bio-card">
+            <p class="bio-card-h">Currently</p>
+            <ul class="bio-roles">
+              <li><b>Stake Capital Group</b>Chief of Staff &middot; Luxembourg</li>
+              <li><b>Rekt News</b>General Manager</li>
+              <li><b>10Q Capital</b>Founder &middot; public AI-portfolio lab</li>
+            </ul>
+            <p class="bio-card-h">Previously</p>
+            <ul class="bio-roles">
+              <li><b>Portugal Ventures</b>Venture capital</li>
+              <li><b>Alpac Capital</b>Venture capital</li>
+              <li><b>Demium Startups</b>Venture building</li>
+              <li><b>ISCTE</b>MSc &middot; thesis on the MACD indicator</li>
+            </ul>
+            <p class="bio-card-h">Elsewhere</p>
+            <div class="bio-links">
+              <a href="https://10q.capital/pt/about" target="_blank" rel="noopener noreferrer">10q.capital</a>
+              <a href="https://www.linkedin.com/in/diogopatao/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/PataoPT/ai-pm-datasheet" target="_blank" rel="noopener noreferrer">Source</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
       <footer id="foot">
         <p class="mono">End of datasheet</p>
         <p>
-          Written as a study companion to the &ldquo;Technical AI PM Interview Questions&rdquo; sheet
-          compiled by Aakash Gupta. The questions are his; the explanations, diagrams, and worked
-          answers here are original.
+          The ninety questions used to structure this site come from the &ldquo;Technical AI PM
+          Interview Questions&rdquo; sheet compiled by Aakash Gupta &mdash; a good map of what people
+          actually need to understand about AI products, which is why it made a good syllabus. The
+          questions are his; the explanations, diagrams, interactive labs, and worked answers here are
+          original.
         </p>
         <p>
           Any figure for pricing, latency, or model capability is an illustrative order of magnitude
@@ -9880,7 +9991,8 @@ details.q > summary:focus-visible { outline: 2px solid var(--accent); outline-of
 
   var extras = [
     { id: "index-sec", label: "Question index" },
-    { id: "quiz-sec", label: "Self-test" }
+    { id: "quiz-sec", label: "Self-test" },
+    { id: "about-sec", label: "About the author" }
   ];
   var group = document.createElement("p");
   group.className = "rail-group";
